@@ -26,10 +26,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      if: ${{ (NOTES != null) }}
-      - name: NOTES ARE NOT NULL
-        run: echo Hello, world! $NOTES
-
-      if: ${{ (NOTES == null) }}
       - name: NOTES ARE NULL
         run: echo Hello, world!
