@@ -31,4 +31,4 @@ jobs:
 
       - name: NOTES ARE NOT NULL
         run: echo Hello, world!
-        if: ( $NOTES != null )
+        if: ( inputs.specialNotes != null )
