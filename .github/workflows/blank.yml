@@ -29,10 +29,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      if: NOTES != null
+      if: inputs.specialNotes != null
       - name: NOTES ARE NOT NULL
-        run: echo Hello, world! $NOTES
+        run: echo Hello, world!
 
-      if: NOTES == null
+      if: inputs.specialNotes == null
       - name: NOTES ARE NULL
         run: echo Hello, world!
