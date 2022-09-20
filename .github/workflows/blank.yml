@@ -31,7 +31,11 @@ jobs:
 
       - name: NOTES ARE NOT NULL
         run: echo Hello, world! $NOTES
-        if: ${{ $NOTES != null }}
+        if: ${{ env.NOTES != null }}
+
+      - name: NOTES ARE NULL
+        run: echo Hello, world! $NOTES
+        if: ${{ env.NOTES == null }}
 
         - name: ECHO
         run: echo Hello, world!
