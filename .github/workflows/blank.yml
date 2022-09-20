@@ -36,3 +36,6 @@ jobs:
         - name: NOTES ARE NULL
         run: echo Hello, world! $NOTES
         if: ( inputs.specialNotes == null )
+
+        - name: ECHO
+        run: echo Hello, world!
