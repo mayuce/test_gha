@@ -30,5 +30,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: NOTES ARE NOT NULL
-        run: echo Hello, world!
+        run: echo Hello, world! $inputs.specialNotes
         if: ( inputs.specialNotes != null )
+
+        - name: NOTES ARE NULL
+        run: echo Hello, world! $inputs.specialNotes
+        if: ( inputs.specialNotes == null )
