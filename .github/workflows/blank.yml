@@ -31,11 +31,11 @@ jobs:
 
       - name: NOTES ARE NOT NULL
         run: echo Hello, world! 
-        if: ( inputs.specialNotes != null )
+        if: ( ${{ inputs.specialNotes }} != null )
 
         - name: NOTES ARE NULL
         run: echo Hello, world! 
-        if: ( inputs.specialNotes == null )
+        if: ( ${{ inputs.specialNotes }} == null )
 
         - name: ECHO
         run: echo Hello, world!
