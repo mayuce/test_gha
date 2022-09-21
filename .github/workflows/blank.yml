@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    if: ${{ github.event.pull_request.merged == true  || env.NOTES != null }}
+    if: ${{ github.event.pull_request.merged == true }} || ${{ env.NOTES != null }}
     steps:
       - uses: actions/checkout@v3
 
