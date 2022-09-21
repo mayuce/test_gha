@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: NOTES ARE NOT NULL
-        run: echo Hello, world! ${{ env.NOTES == null }}
+        run: echo Hello, world! ${{ env.NOTES }}
         if: ${{ env.NOTES != null }}
 
       - name: NOTES ARE NULL
