@@ -45,7 +45,7 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "generated"
-          git push origin ${{ github.head_ref }}:master
+          git push origin ${{ github.head_ref }}:main
 
       - name: ECHO
         run: echo Hello, world!
