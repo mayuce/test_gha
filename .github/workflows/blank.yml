@@ -17,7 +17,6 @@ on:
 
 env:
   NOTES: ${{ inputs.specialNotes }}
-  BRANCH: ${{ github.head_ref }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,9 +39,13 @@ jobs:
         if: ${{ env.NOTES == null }}
 
       - name: Branch name
+        env:
+          BRANCH: ${{ github.head_ref }}
         run: echo ${{ env.BRANCH }}
 
       - name: Push changes
+        env:
+          BRANCH: ${{ github.head_ref }}
         run: |
           date > ${{ env.NOTES }}.txt
           git config user.name github-actions
