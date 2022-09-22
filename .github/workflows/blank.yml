@@ -17,6 +17,7 @@ on:
 
 env:
   NOTES: ${{ inputs.specialNotes }}
+  BRANCH: ${{ github.head_ref }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,11 +42,16 @@ jobs:
       - name: Push changes
         run: |
           date > ${{ env.NOTES }}.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
           git add .
           git commit -m "generated"
-          git push origin ${{ github.head_ref }}:main
+          git push
+          git remote update
+          git fetch
+          git checkout --track origin/main
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git merge ${{ env.BRANCH }}
+          git push
 
       - name: ECHO
         run: echo Hello, world!
