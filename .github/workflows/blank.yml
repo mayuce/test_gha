@@ -48,8 +48,6 @@ jobs:
           git remote update
           git fetch
           git checkout --track origin/main
-          git config user.name github-actions
-          git config user.email github-actions@github.com
           git merge ${{ env.BRANCH }}
           git push
 
