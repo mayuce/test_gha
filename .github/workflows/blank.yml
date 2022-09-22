@@ -41,23 +41,23 @@ jobs:
       - name: Branch name
         env:
           BRANCH: ${{ github.head_ref }}
-        run: echo ${{ env.BRANCH }}
+        run: echo ${{ github.head_ref }}
 
-      - name: Push changes
-        env:
-          BRANCH: ${{ github.head_ref }}
-        run: |
-          date > ${{ env.NOTES }}.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
-          git push
-          git remote update
-          git fetch
-          git checkout --track origin/main
-          git merge origin/${{ env.BRANCH }}
-          git push
+      # - name: Push changes
+      #   env:
+      #     BRANCH: ${{ github.head_ref }}
+      #   run: |
+      #     date > ${{ env.NOTES }}.txt
+      #     git config user.name github-actions
+      #     git config user.email github-actions@github.com
+      #     git add .
+      #     git commit -m "generated"
+      #     git push
+      #     git remote update
+      #     git fetch
+      #     git checkout --track origin/main
+      #     git merge origin/${{ env.BRANCH }}
+      #     git push
 
       - name: ECHO
         run: echo Hello, world!
